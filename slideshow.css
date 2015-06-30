@@ -1,0 +1,100 @@
+/* INSTRUCTIONS
+ 
+All photos should be wrapped in figure elements and should be the same size
+Compress photos before uploading (save originals)
+
+*/
+
+body {
+  box-sizing:border-box
+}
+
+figure {
+  margin:0
+}
+
+.slideshow {
+  display:inline-block;
+  padding:0;
+  position:relative;
+/* To position slideshow buttons */
+  max-width:920px
+}
+
+.photo {
+  margin:0;
+  position: relative;
+  /* To position captions */
+}
+
+.hide {
+  display:none
+}
+
+.slideshow img {
+  width:100%;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px
+}
+
+.slideshow figcaption {
+  background-color:#000;
+  color:#fff;
+  padding:1em;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
+  font-family:Helvetica,Arial,Tahoma,sans-serif;
+  font-size:15px;
+  line-height:150%;
+  margin-top:-5px
+}
+
+.previous, .next {
+  height:0;
+/* Padding-bottom is added via JS; calculates based on height of image */
+  position:absolute;
+  top:0
+}
+
+.previous p, .next p {
+  margin:0;
+  display:table;
+  padding:1em 10px;
+  color:#fff;
+  font-family:Arial;
+  font-size:24px;
+  background-color:#000;
+  text-align:center;
+  font-weight:700;
+  opacity:.8;
+  position:absolute;
+/* positioned in relation to the #previous and #next spans */
+  top:50%;
+  margin-top:-1.6em
+/* previously used transformY(-50%) to bring arrow up half the width of itself; not supported in IE 8 */
+}
+
+.previous p {
+  left:0;
+  border-radius:0 5px 5px 0
+}
+
+.next p {
+  right:0;
+/*moves button to right corner of span instead of left */
+  border-radius:5px 0 0 5px
+}
+
+.previous {
+  left:0
+}
+
+.next {
+  right:0
+}
+
+.previous:hover, .next:hover {
+  opacity:.5;
+  cursor:pointer;
+  cursor:hand
+}
