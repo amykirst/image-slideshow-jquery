@@ -3,14 +3,17 @@
 All photos should be wrapped in figure elements and should be the same size
 Compress photos before uploading (save originals)
 
+LIMITATIONS
+  - Flash of content when page loads (cannot hide images with CSS or would not be available when JS is disabled)
+  - Each photo requires a caption
 */
 
 body {
   box-sizing:border-box
 }
 
-figure {
-  margin:0
+.slideshow figure {
+  margin:0;
 }
 
 .slideshow {
@@ -21,20 +24,17 @@ figure {
   max-width:920px
 }
 
-.photo {
-  margin:0;
-  position: relative;
-  /* To position captions */
-}
-
 .hide {
-  display:none
+  display: none;
 }
 
 .slideshow img {
   width:100%;
   border-top-left-radius:10px;
-  border-top-right-radius:10px
+  border-top-right-radius:10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: 1em 0 0 0;
 }
 
 .slideshow figcaption {
@@ -46,7 +46,9 @@ figure {
   font-family:Helvetica,Arial,Tahoma,sans-serif;
   font-size:15px;
   line-height:150%;
-  margin-top:-5px
+  margin-top:-5px;
+  text-align: left;
+  font-style: normal;
 }
 
 .previous, .next {
@@ -57,7 +59,6 @@ figure {
 }
 
 .previous p, .next p {
-  margin:0;
   display:table;
   padding:1em 10px;
   color:#fff;
@@ -70,7 +71,7 @@ figure {
   position:absolute;
 /* positioned in relation to the #previous and #next spans */
   top:50%;
-  margin-top:-1.6em
+  margin:-.87em 0 0 0;
 /* previously used transformY(-50%) to bring arrow up half the width of itself; not supported in IE 8 */
 }
 
