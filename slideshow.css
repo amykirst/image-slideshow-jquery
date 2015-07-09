@@ -2,10 +2,28 @@
  
 All photos should be wrapped in figure elements and should be the same size
 Compress photos before uploading (save originals)
+Give slideshow a max-width of the images native width
 
 LIMITATIONS
   - Flash of content when page loads (cannot hide images with CSS or would not be available when JS is disabled)
   - Each photo requires a caption
+*/
+
+
+/* PROBLEMS TO FIX
+ - Determine why slideshow needed a display of inline-block; won't this make text wrap around it?
+ - Internet Explorer 8 doesn't display the hidden photos at their dimensions when you click "next"; they have a height and width of 0
+    - Tried to use visiblity hidden and move images to the top of the slideshow with absolute positioning;
+      This gave .slideshow a height and width of 0 because its children were all absolutely positioned
+      .slideshow's lack of dimensions allowed the slides to pour out of its boundaries and go beyond the layout
+      Any text on the page was obscured due to absolute positioning
+      
+      Would .slideshow itself need to be positioned absolutely? And given a width of 100%?
+      
+ - Enable opacity in IE 8 using filter (http://html5please.com/)
+ - Check if position of buttons varies depending on height of image; is the middle correctly calculated for the images?
+ - On mobile, why does opacity of clicked button change?
+ - How do I make the slideshow accessible with tabbing?
 */
 
 body {
