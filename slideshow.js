@@ -25,8 +25,8 @@ function positionButtons() {
 // Add controls (if JS is not enabled; controls will not be present)
 function addControls() {
   // Create buttons
-  $(".slideshow .image").append('<span class="next"><p>>></p></span>');
-  $(".slideshow .image").append('<span class="previous"><p><<</p></span>');
+  $(".slideshow").append('<span class="next"><p>>></p></span>');
+  $(".slideshow").append('<span class="previous"><p><<</p></span>');
   // Calculate position of buttons
   positionButtons();
 } // end addControls
