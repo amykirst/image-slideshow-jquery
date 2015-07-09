@@ -14,11 +14,8 @@ function hidePhotos() {
 function positionButtons() {
   // get the height and width of the shown image
   var imageHeight = $(".slideshow img").first().height();
-  console.log(imageHeight);
   var imageWidth = $(".slideshow img").first().width();
-  console.log(imageWidth);
   var paddingTop = (imageHeight / imageWidth) * 100;
-  console.log(paddingTop);
   paddingTop = +paddingTop.toFixed(2);
   var percent = paddingTop + "%";
   $(".previous").css("paddingBottom", percent);
@@ -28,8 +25,8 @@ function positionButtons() {
 // Add controls (if JS is not enabled; controls will not be present)
 function addControls() {
   // Create buttons
-  $(".slideshow").append('<span class="next"><p>>></p></span>');
-  $(".slideshow").append('<span class="previous"><p><<</p></span>');
+  $(".slideshow .image").append('<span class="next"><p>>></p></span>');
+  $(".slideshow .image").append('<span class="previous"><p><<</p></span>');
   // Calculate position of buttons
   positionButtons();
 } // end addControls
@@ -79,11 +76,12 @@ function progressSlides() {
     }); // end previous click
   } // end progressSlides
 
-hidePhotos();
+
 
 // Run JS after images have downloaded  
 window.onload = function() {
   // Hide all but first photo
+  hidePhotos();
   addControls();
   progressSlides();
 };
