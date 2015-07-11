@@ -2,16 +2,17 @@
  
 All photos should be wrapped in figure elements and should be the same size
 Compress photos before uploading (save originals)
-Give slideshow a max-width of the images native width
 
 LIMITATIONS
   - Flash of content when page loads (cannot hide images with CSS or would not be available when JS is disabled)
   - Each photo requires a caption
+  - Images should be no less than 920px wide - if they are, then change max-width on slideshow
 */
 
 /* PROBLEMS TO FIX
- - Test opacity change on button hover with IE 8
- - Check if position of buttons varies depending on height of image; is the middle correctly calculated for the images? (need to test diff sized images)
+ - Doesn't work to have two slideshows on the page; all of the images for the second slideshow are hidden
+ - Opacity change does not work on button hover with IE 8
+ - Positioning of next button does not change accurately with images of new dimensions
  - On mobile, why does opacity of clicked button change?
  - How do I make the slideshow accessible with tabbing?
  - Add margin top to images only if JS is disabled
@@ -35,9 +36,11 @@ body {
 
 .hide {
   visibility: hidden;
-  /* Cannot use display: none, as IE 8 does not give it dimensions */
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
+  /* left and right positioning retains image dimensions in IE 8 */
 }
 
 .slideshow img {
@@ -46,6 +49,7 @@ body {
   border-top-right-radius: 10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  margin-bottom: 0;
 }
 
 .slideshow figcaption {
@@ -70,7 +74,6 @@ body {
 }
 
 .previous p, .next p {
-  display: table;
   padding: 1em 10px;
   color: #fff;
   font-family: Arial;
@@ -83,7 +86,7 @@ body {
   position: absolute;
 /* positioned in relation to the #previous and #next spans */
   top: 50%;
-  margin: -.87em 0 0 0;
+  margin: -1.5em 0 0 0;
 /* previously used transformY(-50%) to bring arrow up half the width of itself; not supported in IE 8 */
 }
 
