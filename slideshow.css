@@ -6,13 +6,11 @@ Compress photos before uploading (save originals)
 LIMITATIONS
   - Flash of content when page loads (cannot hide images with CSS or would not be available when JS is disabled)
   - Each photo requires a caption
-  - Images should be no less than 920px wide - if they are, then change max-width on slideshow
+  - If images are less than 920px wide, change max-width on slideshow
 */
 
 /* PROBLEMS TO FIX
- - Doesn't work to have two slideshows on the page; all of the images for the second slideshow are hidden
  - Opacity change does not work on button hover with IE 8
- - Positioning of next button does not change accurately with images of new dimensions
  - On mobile, why does opacity of clicked button change?
  - How do I make the slideshow accessible with tabbing?
  - Add margin top to images only if JS is disabled
@@ -110,6 +108,7 @@ body {
 }
 
 .previous:hover, .next:hover {
+  width:99.9%;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   opacity:.5;
   cursor: pointer;
