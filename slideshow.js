@@ -6,6 +6,11 @@ function hidePhotos() {
   $(".image").not(":first-child").addClass("hide");
 } // end hidePhotos
 
+// Remove top margin on images if JS is enabled
+function photoMargin() {
+$(".slideshow img").css("margin-top", "0");
+}
+
 // Calculate position of buttons for each slideshow on page
 function positionButtons() {
   $(".slideshow").each(function() {
@@ -22,17 +27,19 @@ function positionButtons() {
 // Add controls (if JS is not enabled; controls will not be present)
 function addControls() {
   // Create buttons
-  $(".slideshow").append('<span class="next"><p>>></p></span>');
-  $(".slideshow").append('<span class="previous"><p><<</p></span>');
+  $(".slideshow").append('<span tabindex="0" class="next"><p>>></p></span>');
+  $(".slideshow").append('<span tabindex="0" class="previous"><p><<</p></span>');
+  // Disable selection of button text in IE 8
+  $(".next p, .previous p").attr("onselectstart","return false"); 
   // Calculate position of buttons
   positionButtons();
 } // end addControls
-  
+
 function progressSlides() {
   var photos;
   var numPhotos;
   var shownPhotoIndex;
-    
+     
   function findShownPhoto() {
      for (var i = 0; i < numPhotos; i++) {
       // if the image does not contain a class of "hide"
@@ -42,6 +49,14 @@ function progressSlides() {
     } // end for statement
   } // end findShownPhoto
   
+  // Trigger click function if enter is used instead of click
+  $(".next, .previous").keypress(function (e) {
+    var key = e.which;
+    if(key == 13) {
+      $(this).trigger("click");
+    }
+  });  
+
   $(".next, .previous").click(function() {
     var currentSlideshow = $(this).closest(".slideshow");
     numPhotos = $(currentSlideshow).find(".image").length;
@@ -90,6 +105,7 @@ window.onload = function() {
   // Hide all but first photo
   hidePhotos();
   addControls();
+  photoMargin();
   progressSlides();
 };
 })();
