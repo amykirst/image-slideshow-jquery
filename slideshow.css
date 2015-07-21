@@ -15,13 +15,6 @@ LIMITATIONS
   - If images are less than 920px wide, change max-width on slideshow
 */
 
-/* PROBLEMS TO FIX
- - IE 8 not recognizing hover
- - Default focus styles not displaying in IE 8
-*/
-
-
-
 body {
   box-sizing:border-box
 }
@@ -46,7 +39,6 @@ body {
   right: 0;
   /* left and right positioning retains image dimensions in IE 8 */
 }
-
 
 .slideshow img {
   width: 100%;
@@ -117,11 +109,15 @@ cursor: pointer;
   right: 0
 }
 
-/* To target what are likely non touch-screens, which don't support hover and can make it stick */
-@media screen and (min-width: 800px) {
-  .previous p:hover, .next p:hover {
+.previous p:hover, .next p:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   opacity:.5;
   }
 
+/* Prevent hover style on mobile */
+@media screen and (max-width: 800px ) {
+  .previous p:hover, .next p:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity:1;
+  }
 }
