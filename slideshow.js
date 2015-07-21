@@ -1,4 +1,3 @@
-
 (function() {
 
 // Hide all photos except first for each slideshow on page
@@ -8,7 +7,7 @@ function hidePhotos() {
 
 // Remove top margin on images if JS is enabled
 function photoMargin() {
-$(".slideshow img").css("margin-top", "0");
+  $(".slideshow img").css("margin-top", "0");
 }
 
 // Calculate position of buttons for each slideshow on page
@@ -27,8 +26,8 @@ function positionButtons() {
 // Add controls (if JS is not enabled; controls will not be present)
 function addControls() {
   // Create buttons
-  $(".slideshow").append('<span tabindex="0" class="next"><p>>></p></span>');
-  $(".slideshow").append('<span tabindex="0" class="previous"><p><<</p></span>');
+  $(".slideshow").append('<span class="next"><p tabindex="0">>></p></span>');
+  $(".slideshow").append('<span class="previous"><p tabindex="0"><<</p></span>');
   // Disable selection of button text in IE 8
   $(".next p, .previous p").attr("onselectstart","return false"); 
   // Calculate position of buttons
@@ -96,8 +95,9 @@ function progressSlides() {
     $(photos[shownPhotoIndex]).addClass("hide");
     // Show previous photo
     $(prevPhoto).removeClass("hide"); 
-    }); // end previous click
-  } // end progressSlides
+  }); // end previous click
+  
+} // end progressSlides
 
 
 // Run JS after images have downloaded  
@@ -108,4 +108,4 @@ window.onload = function() {
   photoMargin();
   progressSlides();
 };
-})();
+})(); // end wrapper function
