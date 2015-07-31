@@ -64,6 +64,15 @@ body {
   font-style: normal;
 }
 
+.slideshow a, .slideshow a:visited, .slideshow a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.slideshow a:hover {
+  color: #eee;
+}
+
 .previous, .next {
   height: 0;
 /* Padding-bottom is added via JS; calculates based on height of image */
