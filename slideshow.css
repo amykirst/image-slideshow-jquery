@@ -14,119 +14,222 @@ LIMITATIONS
   - Each photo requires a caption
   - If images are less than 920px wide, change max-width on slideshow
 */
+/* ---------------------- CSS Reset -----------------------*/
+a img {
+  border:0
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin:0;
+  padding:0;
+  line-height:1em;
+  font-size:100%;
+  font-weight:400
+}
+
+p {
+  margin:0 0 1em;
+  line-height:1.5
+}
 
 body {
-  box-sizing:border-box
+  margin:0
+}
+
+/* ---------------------- Styles -----------------------*/
+html {
+  background:#eaeaea url(background.png) repeat-x left top
+}
+
+body {
+  box-sizing:border-box;
+  padding:30px 0;
+  font-family:Helvetica,Arial,Tahoma,sans-serif;
+  font-size:15px;
+  border-top:1px #0068ac;
+  min-width:280px
+}
+
+header {
+  background:#0068ac;
+  max-width:980px;
+  margin:0 auto 30px
+}
+
+.MainWrap {
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 0 10px 0;
+  padding:30px;
+  box-sizing:border-box;
+  max-width:980px;
+  min-height:100%;
+  margin:0 auto;
+  color:#666;
+  line-height:150%
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family:NovareseStd-Book,"NovareseStd Book","Novarese Std Book",Helvetica,Tahoma,sans-serif;
+  font-weight:400;
+  line-height:120%;
+  color:#0068ac;
+  margin:1.5em 0 .5em
+}
+
+h1 {
+  font-size:2.5em;
+  margin:0 0 .5em;
+  padding:0
+}
+
+h2 {
+  font-size:1.67em
+}
+
+h3 {
+  font-size:1.4em
+}
+
+h4,h5,h6 {
+  font-size:1.2em
+}
+
+p {
+  margin:1.2em 0
 }
 
 .slideshow figure {
-  margin:0;
+  margin:0
 }
 
 .slideshow {
-  display: block;
-  padding: 0;
-  position: relative;
- /* To position slideshow buttons */
-  max-width: 920px;
+  display:block;
+  padding:0;
+  position:relative;
+/* To position slideshow buttons */
+  max-width:920px
 }
 
 .hide {
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  /* left and right positioning retains image dimensions in IE 8 */
+  visibility:hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0
+/* left and right positioning retains image dimensions in IE 8 */
 }
 
 .slideshow img {
-  width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-bottom: 0;
-  margin-top: 1em;
+  width:100%;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  margin-bottom:0;
+  margin-top:1em
 }
 
 .slideshow figcaption {
-  background-color: #000;
-  color: #fff;
-  padding: 1em;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  font-family: Helvetica,Arial,Tahoma,sans-serif;
-  font-size: 15px;
-  line-height: 150%;
-  margin-top: -5px;
-  text-align: left;
-  font-style: normal;
+  background-color:#000;
+  color:#fff;
+  padding:1em;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
+  font-family:Helvetica,Arial,Tahoma,sans-serif;
+  font-size:15px;
+  line-height:150%;
+  margin-top:-7px;
+  text-align:left;
+  font-style:normal
 }
 
-.slideshow a, .slideshow a:visited, .slideshow a:active {
-  color: #fff;
-  text-decoration: underline;
+.slideshow a,.slideshow a:visited,.slideshow a:active {
+  color:#fff;
+  text-decoration:underline
 }
 
 .slideshow a:hover {
-  color: #eee;
+  color:#eee
 }
 
-.previous, .next {
-  height: 0;
+.previous,.next {
+  height:0;
 /* Padding-bottom is added via JS; calculates based on height of image */
-  position: absolute;
+  position:absolute;
   top:0
 }
 
-.previous p, .next p {
-  padding: 1em 10px;
-  color: #fff;
-  font-family: Arial;
-  font-size: 24px;
-  background-color: #000;
-  text-align: center;
-  font-weight: 700;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  opacity: .8;
-  position: absolute;
+.previous p,.next p {
+  padding:1em 10px;
+  color:#fff;
+  font-family:Arial;
+  font-size:24px;
+  background-color:#000;
+  text-align:center;
+  font-weight:700;
+  -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity:.8;
+  position:absolute;
 /* positioned in relation to the #previous and #next spans */
-  top: 50%;
-  margin: -1.5em 0 0 0;
+  top:50%;
+  margin:-1.5em 0 0;
 /* previously used transformY(-50%) to bring arrow up half the width of itself; not supported in IE 8 */
-cursor: pointer;
-  cursor: hand;
+  cursor:pointer;
+  cursor:hand
 }
 
 .previous p {
-  left: 0;
-  border-radius: 0 5px 5px 0
+  left:0;
+  border-radius:0 5px 5px 0
 }
 
 .next p {
-  right: 0;
+  right:0;
 /*moves button to right corner of span instead of left */
-  border-radius: 5px 0 0 5px
+  border-radius:5px 0 0 5px
 }
 
 .previous {
-  left: 0
+  left:0
 }
 
 .next {
-  right: 0
+  right:0
 }
 
-.previous p:hover, .next p:hover {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  opacity:.5;
-  }
+.previous p:hover,.next p:hover {
+  -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity:.5
+}
+
+@media screen and (max-width:1040px) {
+body {
+  padding-left:30px;
+  padding-right:30px
+}
+}
 
 /* Prevent hover style on mobile */
 @media screen and (max-width: 800px ) {
-  .previous p:hover, .next p:hover {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  opacity:1;
-  }
+.previous p:hover,.next p:hover {
+  -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity:1
+}
+}
+
+@media screen and (max-width:450px) {
+header img {
+  max-width:300px;
+  height:auto
+}
+
+body {
+  padding-left:20px;
+  padding-right:20px
+}
+
+.MainWrap {
+  padding:20px
+}
 }
