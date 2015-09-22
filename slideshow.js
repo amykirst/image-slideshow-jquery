@@ -102,10 +102,12 @@ function progressSlides() {
 
 // Run JS after images have downloaded  
 window.onload = function() {
-  // Hide all but first photo
-  hidePhotos();
-  addControls();
-  photoMargin();
-  progressSlides();
+   if ($("div").hasClass("slideshow")) {
+    // Hide all but first photo
+    hidePhotos();
+    addControls();
+    photoMargin();
+    progressSlides();
+  } // end if
 };
 })(); // end wrapper function
