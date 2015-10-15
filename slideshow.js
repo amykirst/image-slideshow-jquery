@@ -1,4 +1,4 @@
-(function() {
+function loadSlideShow() {
 
 // Hide all photos except first for each slideshow on page
 function hidePhotos() {
@@ -101,7 +101,7 @@ function progressSlides() {
 
 
 // Run JS after images have downloaded  
-window.onload = function() {
+
    if ($("div").hasClass("slideshow")) {
     // Hide all but first photo
     hidePhotos();
@@ -109,5 +109,9 @@ window.onload = function() {
     photoMargin();
     progressSlides();
   } // end if
-};
-})(); // end wrapper function
+
+}; // end loadSlideShow
+
+$(window).load(function() {
+loadSlideShow();
+});
